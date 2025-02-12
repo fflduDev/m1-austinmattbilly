@@ -1,6 +1,20 @@
 package linkedList;
-
+class Node {
+	String data;
+	Node next;
+	
+	Node(String data) {                  //node class
+		this.data = data;
+		this.next = next;
+	}
+}
 public class LinkedListImpl implements LinkedList {
+	
+	Node head;
+	LinkedListImpl() {
+		this.head = null;
+	}
+	
 
 	@Override
 	public Boolean isItemInList(String thisItem) {
@@ -11,9 +25,11 @@ public class LinkedListImpl implements LinkedList {
 	@Override
 	public Boolean addItem(String thisItem) {
 		
-		
+		Node n = new Node(thisItem);
 		System.out.println("hello from addItem in LinkedListImpl - the item passed in: " + thisItem);
+		
 	
+		
 		return null;
 	}
 
