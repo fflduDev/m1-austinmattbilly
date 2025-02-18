@@ -1,26 +1,39 @@
 package linkedList;
+
+//import template.ListNode;
+
 class Node {
 	String data;
 	Node next;
 	
 	Node(String data) {                  //node class
 		this.data = data;
-		this.next = next;
+		this.next = null;
 	}
 }
 public class LinkedListImpl implements LinkedList {
+	private int size;
+	private Node head;
 	
-	Node head;
 	LinkedListImpl() {
 		this.head = null;
+		this.size = 0;
 	}
 	
 
 	@Override
 	public Boolean isItemInList(String thisItem) {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		 Node curr = head;
+	        while (curr != null) {
+	            if (curr.data.equals(thisItem)) {
+	                return true;  // Item found
+	            }
+	            curr = curr.next;
+	        }
+	        return false;  // Item not found
+	    }
+	
 
 	@Override
 	public Boolean addItem(String thisItem) {
@@ -28,15 +41,24 @@ public class LinkedListImpl implements LinkedList {
 		Node n = new Node(thisItem);
 		System.out.println("hello from addItem in LinkedListImpl - the item passed in: " + thisItem);
 		
-	
+		if (head ==null) {
+			head = n;
+			return true;} else {
+				Node current = head;
+				while (current.next!=null) {
+					current = current.next;
+				}
+				current.next= n;
+			}
+		size++;
+		return true;
 		
-		return null;
 	}
 
 	@Override
 	public Integer itemCount() {
 		// TODO Auto-generated method stub
-		return null;
+		return size;
 	}
 
 	@Override
