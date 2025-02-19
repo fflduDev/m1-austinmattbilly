@@ -64,18 +64,43 @@ public class LinkedListImpl implements LinkedList {
 	@Override
 	public void listItems() {
 		// TODO Auto-generated method stub
+		Node current = head;
+		while (current!= null) {
+			System.out.println(current.data + " ");
+			current = current.next;
+		}
+		
 		
 	}
 
 	@Override
 	public Boolean deleteItem(String thisItem) {
 		// TODO Auto-generated method stub
-		return null;
+		if (head == null) {
+			System.out.println("There are no items to delete");
+			return false;
+		}
+		if (head.data.equals(thisItem)) {
+			head = head.next;
+			System.out.println(thisItem + "has been deleted from the list");
+			return true;
+		}
+		Node current = head;
+		while (current.next != null && current.next.data != thisItem) {
+			current = current.next;
+		}
+		if (current.next!= null) {
+			current.next=current.next.next;
+			System.out.println(thisItem + "has been deleted from the list");
+			return true;
+		}
+		System.out.println(thisItem + "was not found in your linkedList");
+		return false;
 	}
 
 	@Override
 	public Boolean insertBefore(String newItem, String itemToInsertBefore) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub              //gonna figure this out later
 		return null;
 	}
 
