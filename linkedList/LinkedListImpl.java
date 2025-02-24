@@ -13,7 +13,7 @@ class Node {
 }
 public class LinkedListImpl implements LinkedList {
 	private int size;
-	private Node head;
+	public ListItem head;
 	
 	LinkedListImpl() {
 		this.head = null;
@@ -24,7 +24,7 @@ public class LinkedListImpl implements LinkedList {
 	@Override
 	public Boolean isItemInList(String thisItem) {
 		// TODO Auto-generated method stub
-		 Node curr = head;
+		 ListItem curr = head;
 	        while (curr != null) {
 	            if (curr.data.equals(thisItem)) {
 	                return true;  // Item found
@@ -38,13 +38,13 @@ public class LinkedListImpl implements LinkedList {
 	@Override
 	public Boolean addItem(String thisItem) {
 		
-		Node n = new Node(thisItem);
+		ListItem n = new ListItem(thisItem);
 		System.out.println("hello from addItem in LinkedListImpl - the item passed in: " + thisItem);
 		
 		if (head ==null) {
 			head = n;
 			return true;} else {
-				Node current = head;
+				ListItem current = head;
 				while (current.next!=null) {
 					current = current.next;
 				}
@@ -64,7 +64,7 @@ public class LinkedListImpl implements LinkedList {
 	@Override
 	public void listItems() {
 		// TODO Auto-generated method stub
-		Node current = head;
+		ListItem current = head;
 		while (current!= null) {
 			System.out.println(current.data + " ");
 			current = current.next;
@@ -85,7 +85,7 @@ public class LinkedListImpl implements LinkedList {
 			System.out.println(thisItem + "has been deleted from the list");
 			return true;
 		}
-		Node current = head;
+		ListItem current = head;
 		while (current.next != null && current.next.data != thisItem) {
 			current = current.next;
 		}
@@ -100,20 +100,96 @@ public class LinkedListImpl implements LinkedList {
 
 	@Override
 	public Boolean insertBefore(String newItem, String itemToInsertBefore) {
-		// TODO Auto-generated method stub              //gonna figure this out later
-		return null;
+		// TODO Auto-generated method stub 
+		ListItem item = new ListItem(newItem);
+		
+		if (head == null) {
+			System.out.println("The list is empty, no item to insert before.");
+		}
+		if (head.data.equals(itemToInsertBefore)) {
+			item.next = head;
+			head = item;
+			size++;
+			return true;
+			
+			
+			
+		}
+		ListItem curr = head;
+		while ( curr.next != null && !curr.next.data.equals(itemToInsertBefore)) {
+			curr = curr.next;
+		}
+		
+		if (curr.next != null) {
+			item.next = curr.next;
+			curr.next = item;
+			size++;
+			return true;
+		}
+		else {
+			System.out.println(itemToInsertBefore + "not found");
+			return false;
+		}
+		
+		
+		
 	}
 
 	@Override
 	public Boolean insertAfter(String newItem, String itemToInsertAfter) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		if (head == null) {
+			System.out.println("The list is empty, no item to insert after.");
+			return false;
+		}
+		ListItem curr = head;
+		while(head!= null && !curr.data.equals(itemToInsertAfter)) {
+			head = curr.next;
+			
+		}
+		if (curr != null) {
+			ListItem item = new ListItem(newItem);
+			curr.next = item;
+			size++;
+			return true;
+			
+		} else {
+			System.out.println(itemToInsertAfter + "was not found");
+			return false;
+		}
+			
+		
 	}
 
 	@Override
 	public void sort() {
 		// TODO Auto-generated method stub
+		if (head == null || head.next == null) {
+	        return; // List is empty or has only one item, no sorting needed.
+	    }
+
+	    boolean swapped;
+	    do {
+	        swapped = false;
+	        ListItem curr = head;
+	        ListItem prev = null;
+
+	        while (curr != null && curr.next != null) {
+	            if (curr.data.compareTo(curr.next.data) > 0) {
+	                // Swap values
+	                String temp = curr.data;
+	                curr.data = curr.next.data;
+	                curr.next.data = temp;
+	                swapped = true;
+	            }
+	            prev = curr;
+	            curr = curr.next;
+	        }
+	    } while (swapped); 
+
 		
 	}
+	
 	
 }
