@@ -2,15 +2,7 @@ package linkedList;
 
 //import template.ListNode;
 
-class Node {
-	String data;
-	Node next;
-	
-	Node(String data) {                  //node class
-		this.data = data;
-		this.next = null;
-	}
-}
+
 public class LinkedListImpl implements LinkedList {
 	private int size;
 	public ListItem head;
