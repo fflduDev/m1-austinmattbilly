@@ -6,11 +6,23 @@ public class StackTester {
 
 		Stack stackTester = new StackImpl();
 		stackTester.push("thing in stack");
-
+        stackTester.push("another thing in stack");
+        stackTester.display();
+        System.out.println("popped: " + stackTester.pop());
+        System.out.println("size: " + stackTester.size());
+        
 	}
 	
 	public static void runTests(Stack stack) {
-	 	
+	    stack.setCapacity(5);
+        stack.push("a");
+        stack.push("b");
+        stack.push("c");
+        stack.display();
+        System.out.println("peek: " + stack.peek());
+        System.out.println("pop: " + stack.pop());
+        stack.display();
+
 	}
 
 }
