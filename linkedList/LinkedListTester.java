@@ -20,7 +20,14 @@ public class LinkedListTester {
 		tester.listItems();
 		
 		System.out.println("testing add and remove functions");
-
+		
+		tester.insertAfter("grape","strawberry");
+		
+		tester.deleteItem("mango");
+		
+		tester.listItems();
+		
+		System.out.println("just deleted mango, is it still in the list? " + tester.isItemInList("mango"));
 
 
 		

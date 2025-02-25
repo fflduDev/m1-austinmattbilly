@@ -15,6 +15,31 @@ public class StagBusClient {
         System.out.println("-----L I S T  T E S T------");
 
         // listRunTestMethod...
+        LinkedList stations = new LinkedListImpl();
+        stations.addItem("Main Street");
+        stations.addItem("Airport Terminal");
+        stations.addItem("Down Town");
+        stations.addItem("Town Square");
+        
+        stations.listItems();
+        
+        System.out.println("Checking if South Main is in list" + stations.isItemInList("South Main"));
+        
+        stations.deleteItem("Down Town");
+        
+        stations.listItems();
+        stations.insertBefore("Post Road", "Airport Terminal");
+        stations.listItems();
+        stations.insertAfter("City Hall", "Post Road" );
+        
+        stations.listItems();
+
+
+        
+        
+        
+
+
 
         System.out.println("-----S T A C K  T E S T------");
 

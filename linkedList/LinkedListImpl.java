@@ -15,7 +15,7 @@ public class LinkedListImpl implements LinkedList {
 	private int size;
 	public ListItem head;
 	
-	LinkedListImpl() {
+	public LinkedListImpl() {
 		this.head = null;
 		this.size = 0;
 	}
