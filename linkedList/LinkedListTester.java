@@ -19,15 +19,21 @@ public class LinkedListTester {
 		System.out.println("your list after sorting");
 		tester.listItems();
 		
-		System.out.println("testing add and remove functions");
+		System.out.println("testing insert and remove functions");
 		
-		tester.insertAfter("grape","strawberry");
+		tester.insertAfter("strawberry","grape");
 		
 		tester.deleteItem("mango");
 		
 		tester.listItems();
 		
 		System.out.println("just deleted mango, is it still in the list? " + tester.isItemInList("mango"));
+		
+		System.out.println("Now testing insertBefore:");
+		tester.insertBefore("dragonfruit ", "strawberry");
+		tester.sort();
+		tester.listItems();
+		System.out.println("items in the list: " + tester.itemCount());
 
 
 		

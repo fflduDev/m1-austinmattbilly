@@ -83,10 +83,10 @@ public class LinkedListImpl implements LinkedList {
 		}
 		if (current.next!= null) {
 			current.next=current.next.next;
-			System.out.println(thisItem + "has been deleted from the list");
+			System.out.println(thisItem + " has been deleted from the list");
 			return true;
 		}
-		System.out.println(thisItem + "was not found in your linkedList");
+		System.out.println(thisItem + " was not found in your linkedList");
 		return false;
 	}
 
@@ -136,12 +136,13 @@ public class LinkedListImpl implements LinkedList {
 			return false;
 		}
 		ListItem curr = head;
-		while(head!= null && !curr.data.equals(itemToInsertAfter)) {
-			head = curr.next;
+		while(curr!= null && !curr.data.equals(itemToInsertAfter)) {
+			curr = curr.next;
 			
 		}
 		if (curr != null) {
 			ListItem item = new ListItem(newItem);
+			item.next = curr.next;
 			curr.next = item;
 			size++;
 			return true;
