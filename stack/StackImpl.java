@@ -1,8 +1,20 @@
 package stack; 
 
 public class StackImpl implements Stack {
+    private String[] stackArray;
+    private int top;
+    private int capacity;
 
-	@Override
+    public StackImpl() {
+        this(10);
+    }
+
+    public StackImpl(int capacity) {
+        this.capacity = capacity;
+        this.stackArray = new String[capacity];
+        this.top = -1;}
+
+    @Override
 	public void push(String s) {
         if (isFull()) {
             System.out.println("full stack cant push: " + s);
@@ -49,15 +61,12 @@ public class StackImpl implements Stack {
         }
         return stackArray[top];
     }
-	@Override
-	public void setCapacity(int size) {
-		// TODO Auto-generated method stub
-		public void setCapacity(int size) {
+    @Override
+    public void setCapacity(int size) {
         this.capacity = size;
         stackArray = new String[capacity];
         top = -1;
-	}
-
+    }
 	@Override
 	public void display() {
 		// TODO Auto-generated method stub
