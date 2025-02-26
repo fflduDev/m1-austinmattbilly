@@ -42,8 +42,36 @@ public class StagBusClient {
 
 
         System.out.println("-----S T A C K  T E S T------");
+        Stack busStack = new StackImpl();
+        System.out.println("pushing riders to stack");
+        busStack.push("john");
+        busStack.push("bob");
+        busStack.push("charles");
+        busStack.push("wayne");
+        busStack.push("zion");
+        busStack.push("lonzo");
+        
+        System.out.println("stack display");
+        busStack.display();
+        System.out.println("peeking stack " + busStack.peek());
+        System.out.println("popping stack");
+        busStack.pop();
+        busStack.display();
+        
+        System.out.println("adding extra passengers");
+        busStack.push("dwade");
+        busStack.push("bron");
+        busStack.display();
+        System.out.println("peeking stack " + busStack.peek());
+        System.out.println("removing all passengers");
+        
+        while (!busStack.isEmpty()) {
+            busStack.pop();
+        }
+        System.out.println("stack status:  " + busStack.isEmpty());
 
-        // StackRunTestMethod...
+
+
 
         System.out.println("----Q U E U E  T E S T-------");
 
